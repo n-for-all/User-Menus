@@ -178,8 +178,11 @@ class Items {
 			}
 
 		}
-
-		return str_replace( '{' . $match . '}', $replace, $title );
+		if(array_key_exists( $match, Codes::valid_codes() )){
+			return str_replace( '{' . $match . '}', $replace, $title );
+		}
+		
+		return $title;
 	}
 
 }
